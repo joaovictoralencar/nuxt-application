@@ -1,0 +1,314 @@
+.header.navbar {
+  position: sticky;
+  top: 0;
+  margin: 0 auto;
+  width: calc(100% + 10px);
+  max-width: $navbar-max-width;
+  overflow-x: hidden;
+  padding: 10px 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  z-index: 100;
+  border-radius: 0;
+
+  @include themed() {
+    background: transparentize(t($bg), 0.1);
+  }
+
+  .logo {
+    @media (max-width: $screen-xs) {
+      left: $spacer--small;
+    }
+  }
+
+  .container {
+    width: 100%;
+    padding: 0;
+    margin: 0 -15px;
+  }
+
+  .navbar-toggle {
+    margin-right: 0;
+    margin-top: 0;
+
+    @include themed() {
+      border-color: t($border);
+
+      span {
+        background-color: t($text);
+      }
+    }
+  }
+
+  .navbar-collapse {
+    padding: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+    width: auto;
+    float: right;
+
+    .header__links {
+      float: left;
+    }
+  }
+
+  &__utility,
+  &__links {
+    list-style: none;
+  }
+
+  &__utility {
+  }
+
+  .logo {
+    @extend %title-text;
+    font-size: $font-size--role + 5;
+    padding: 0 15px;
+
+    @include themed() {
+      color: t($text-important);
+    }
+
+    &:hover,
+    &:focus {
+      text-underline: none;
+      text-decoration: none;
+    }
+  }
+
+  .header-link {
+    margin: 0 15px;
+    @extend .header-link;
+
+    a {
+      svg {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.link {
+  font-family: $font-family--title;
+  display: flex;
+  padding: 8px 0;
+  border-radius: $rounded;
+  text-decoration: none;
+  text-transform: lowercase;
+  line-height: 1;
+
+  @include themed() {
+    color: t($link);
+  }
+
+  a {
+    padding: 0;
+    background: transparent !important;
+    text-decoration: none;
+
+    @include themed() {
+      color: t($link) !important;
+    }
+  }
+
+  svg {
+    margin-right: $spacer--icon;
+    margin-left: $spacer--icon;
+  }
+
+  &:hover,
+  &.active {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.header-link {
+  @include themed() {
+    color: t($text-secondary);
+  }
+
+  &:hover,
+  &.active {
+    @include themed() {
+      color: t($text-secondary);
+    }
+
+    a {
+      @include themed() {
+        color: t($text-secondary) !important;
+      }
+    }
+  }
+
+  a {
+    background-color: transparent !important;
+    @extend %nav-text;
+
+    @include themed() {
+      color: t($text) !important;
+    }
+  }
+
+  //desktop nav
+  @media (min-width: $screen-sm-min) {
+    a {
+      font-size: $font-size--tertiary;
+      padding: 8px 0;
+
+      @include themed() {
+        color: t($text) !important;
+      }
+    }
+
+    &:hover,
+    &.active {
+      @include themed() {
+        color: t($text-important);
+        font-weight: $font-weight--bold;
+      }
+
+      &:before {
+        @include themed() {
+          background-color: t($text-important);
+        }
+        content: "";
+        height: 2px;
+        position: absolute;
+        bottom: -1px;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: width 0.3s ease-in-out;
+        width: 100%;
+      }
+    }
+  }
+
+  //mobile nav
+  @media (max-width: $screen-xs-max) {
+    a {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
+    &:hover,
+    &.active {
+      a {
+        @include themed() {
+          background-color: t($hover) !important;
+        }
+      }
+
+      &:before {
+        @include themed() {
+          background-color: t($text);
+        }
+        content: "";
+        height: 100%;
+        position: absolute;
+        left: 3px;
+        transform: translateX(-50%);
+        transition: width 0.3s ease-in-out;
+        width: 6px;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  .header.navbar {
+    padding: 0 $page-padding-mobile 5px $page-padding-mobile;
+    margin-bottom: $spacer--smallest;
+
+    .navbar-nav {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .navbar-toggle {
+      &:hover,
+      &:focus {
+        @include themed() {
+          background: t($hover);
+        }
+      }
+    }
+
+    .navbar-collapse {
+      border-color: transparent;
+      overflow-x: hidden;
+      width: 100%;
+      margin-bottom: $spacer--small;
+      @include card-shadow;
+
+      .header__links {
+        float: none;
+      }
+
+      @include themed() {
+        background: t($card-bg);
+      }
+    }
+  }
+}
+
+.theme-toggle {
+  margin-left: $spacer--medium !important;
+
+  &:hover {
+    opacity: 0.8;
+
+    &:before {
+      display: none;
+      content: none;
+    }
+  }
+}
+
+.theme--default {
+  //.theme-toggle {
+  //  @media (min-width: $screen-sm-min) {
+  //    &:hover a {
+  //      &:before {
+  //        content: "Go Dark";
+  //        margin-right: $spacer--icon;
+  //      }
+  //    }
+  //  }
+  //  @media (max-width: $screen-xs-max) {
+  //    a {
+  //      margin-right: $spacer--icon;
+  //      &:after {
+  //        content: "Go Dark";
+  //        margin-left: $spacer--icon;
+  //      }
+  //    }
+  //  }
+  //}
+}
+
+.theme--dark {
+  .theme-toggle {
+    svg {
+      color: #ffd475;
+    }
+    //@media (min-width: $screen-sm-min) {
+    //  &:hover a {
+    //    &:before {
+    //      content: "Go Light";
+    //      margin-right: $spacer--icon;
+    //    }
+    //  }
+    //}
+    //@media (max-width: $screen-xs-max) {
+    //  a {
+    //    margin-right: $spacer--icon;
+    //    &:after {
+    //      content: "Go Light";
+    //      margin-left: $spacer--icon;
+    //    }
+    //  }
+    //}
+  }
+}

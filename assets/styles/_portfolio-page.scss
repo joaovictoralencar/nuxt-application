@@ -1,0 +1,157 @@
+.portfolio-page {
+  max-width: $content-width;
+  margin: 45px auto 0;
+  text-align: left;
+
+  .header {
+    padding: 0;
+  }
+}
+
+.header {
+  &__title {
+  }
+
+  &__backlink {
+    margin-bottom: $spacer--default;
+
+    @media (max-width: $screen-xs-max) {
+      margin-bottom: $spacer--small;
+    }
+  }
+
+  &__tags {
+    margin-top: $spacer--small;
+
+    &__icon {
+      @include themed() {
+        color: t($text-badge);
+      }
+      font-size: $font-size--secondary - 4px;
+      margin-right: 8px;
+      opacity: 0.5;
+    }
+
+    .badge {
+      margin-right: $spacer--icon;
+      margin-top: $spacer--icon;
+    }
+  }
+
+  &__nda {
+    font-style: italic;
+    font-weight: $font-weight--bold;
+    margin-top: $spacer--smallest;
+
+    @include themed() {
+      color: t($text-important);
+    }
+  }
+
+  &__splash {
+    margin-top: $spacer--default;
+    height: 450px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    @media (max-width: $screen-xs-max) {
+      height: 300px;
+    }
+  }
+}
+
+.setup {
+  margin-top: -1 * ($spacer--small);
+  p {
+    font-family: monospace, $font-family;
+    font-size: $font-size--tertiary;
+    line-height: $line-height--base;
+  }
+}
+
+.section {
+  margin-top: $spacer--large;
+
+  .setup {
+    .section-img {
+      @include themed() {
+        background: $bg--card--light;
+        border: 1px solid t($border);
+        padding: $spacer--small;
+        margin: $spacer--smallest 0 $spacer--small;
+      }
+    }
+  }
+
+  &__img {
+    margin: $spacer--smallest auto;
+  }
+}
+
+.subsection {
+  margin-top: $spacer--small;
+}
+
+.section-header {
+  font-size: $font-size--section-header;
+  font-family: $font-family--title;
+  line-height: $line-height--title;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: $spacer--smallest;
+  margin-top: 0;
+}
+
+.section-quote {
+  font-size: $font-size--quote;
+  line-height: $line-height--quote;
+  font-weight: 500;
+  font-family: $font-family--title;
+
+  @include themed() {
+    color: t($text-secondary);
+  }
+}
+
+.caption {
+  font-size: $font-size--tertiary;
+  font-style: italic;
+  text-align: center;
+  margin-top: $spacer--icon;
+  margin-bottom: $spacer--small;
+}
+
+.des {
+  .header__title,
+  .section-header,
+  .section-quote,
+  .link {
+    @include themed() {
+      color: t($brand-blue);
+    }
+  }
+}
+
+.dev {
+  .header__title,
+  .section-header,
+  .section-quote,
+  .link {
+    @include themed() {
+      color: t($brand-red);
+    }
+  }
+}
+
+.backlink {
+  &__top {
+    float: right;
+
+    @media (max-width: $screen-xs-max) {
+      text-align: left;
+      float: left;
+      margin-top: $spacer--small;
+    }
+  }
+}

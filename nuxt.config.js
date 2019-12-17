@@ -1,7 +1,7 @@
 
 module.exports = {
   mode: 'universal',
-  
+
   generate: {
     routes: [
       '/posts/balut',
@@ -32,7 +32,8 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '@/assets/styles/style.scss'
+    '@/assets/styles/style.scss',
+    '@/assets/styles/app.scss'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -59,7 +60,7 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend(config, ctx) {
     }
   }
 }
