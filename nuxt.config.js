@@ -33,7 +33,6 @@ module.exports = {
   */
   css: [
     '@/assets/styles/style.scss',
-    '@/assets/styles/app.scss'
   ],
   /*
   ** Plugins to load before mounting the App
