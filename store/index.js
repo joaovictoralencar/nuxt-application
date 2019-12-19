@@ -13,7 +13,7 @@ export const mutations = {
 //a cada página, antes de renderizar ela, será necessário checar se existe um usuário autenticado conectado e então definir ele para a página
 export const actions = {
     nuxtServerInit({ commit }, { req }) {
-        if (req.session && req.session.authUser) {
+        if (req && req.session && req.session.authUser) {
             commit('SET_USER', req.session.authUser)
         }
     },

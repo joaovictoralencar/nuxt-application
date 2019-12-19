@@ -8,10 +8,9 @@ module.exports = {
     routes: [
       '/posts/balut',
       '/posts/whereIsIt',
-      '/posts/how'
+      '/posts/how',
     ]
   },
-
   /*
   ** Headers of the page
   */
