@@ -6,6 +6,9 @@
       </nuxt-link>
       <span class="subheader">A Vue School course</span>
     </div>
+    <nuxt-link :to="{ name: 'login' }" class="login text-base">
+      Login
+    </nuxt-link>
   </nav>
 </template>
 

@@ -1,3 +1,5 @@
+const bodyParser = require('body-parser')
+const session = require('express-session')
 
 module.exports = {
   mode: 'universal',
@@ -24,6 +26,20 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  serverMiddleware: [
+    // body-parser middleware
+    bodyParser.json(),
+    // session middleware
+    session({
+      secret: 'super-secret-key',
+      resave: false,
+      saveUninitialized: false,
+      cookie: { maxAge: 60000 }
+    }),
+    // Api middleware
+    // We add /api/login & /api/logout routes
+    '~/api'
+  ],
   /*
   ** Customize the progress-bar color
   */
